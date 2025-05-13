@@ -1,4 +1,4 @@
-const container = document.getElementById('container');
+        const container = document.getElementById('container');
         const zoneViewer = document.getElementById('zoneViewer');
         let zoneFrame = document.getElementById('zoneFrame');
         const searchBar = document.getElementById('searchBar');
@@ -124,19 +124,6 @@ const container = document.getElementById('container');
                 }
             })
         }
-        function openAboutBlankWithRemoteHTML() {
-    fetch('https://goreffplazy.github.io/?t=' + Date.now())
-        .then(response => response.text())
-        .then(html => {
-            const win = window.open('about:blank', '_blank');
-            if (win) {
-                win.document.open();
-                win.document.write(html);
-                win.document.close();
-            }
-        })
-        .catch(error => alert("Failed to load remote HTML: " + error));
-        }
 
         function closeZone() {
             zoneViewer.style.display = "none";
@@ -247,17 +234,6 @@ const container = document.getElementById('container');
             document.getElementById('popupOverlay').style.display = "flex";
         }
 
-        function enableAutoRedirect() {
-            localStorage.setItem('autoRedirect', 'true');
-            alert('Auto-redirect enabled. Reload the page to activate.');
-        }
-
-        function disableAutoRedirect() {
-            localStorage.setItem('autoRedirect', 'false');
-            alert('Auto-redirect disabled.');
-        }
-
-        // Update settings popup to include auto-redirect toggle
         const settings = document.getElementById('settings');
         settings.addEventListener('click', () => {
             document.getElementById('popupTitle').textContent = "Settings";
@@ -266,10 +242,6 @@ const container = document.getElementById('container');
             <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
             <br><br>
             <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
-            <br><br>
-            <button id="settings-button" onclick="enableAutoRedirect()">Enable Auto-Redirect</button>
-            <br><br>
-            <button id="settings-button" onclick="disableAutoRedirect()">Disable Auto-Redirect</button>
             <br>
             `;
             popupBody.contentEditable = false;

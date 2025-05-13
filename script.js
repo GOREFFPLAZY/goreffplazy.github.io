@@ -124,7 +124,7 @@
                 }
             })
         }
-        function openblanker() {
+        function openAboutBlankWithRemoteHTML() {
     fetch('https://goreffplazy.github.io/?t=' + Date.now())
         .then(response => response.text())
         .then(html => {

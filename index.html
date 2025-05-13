@@ -99,6 +99,16 @@
         <!-- ...existing links... -->
         <a href="#" onclick="openCustomAboutBlank('https://example.com'); return false;">My Custom Site</a>
     </div>
+<footer>
+    <div class="footer-links">
+        <a href="#" onclick="showContact(); return false;">Contact</a>
+        <a href="#" onclick="loadPrivacy(); return false;">Privacy Policy</a>
+        <a href="javascript:saveData()">Export Data</a>
+        <label for="importData" style="color: var(--primary-color); cursor: pointer;">Import Data</label>
+        <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
+        <a href="https://gn-math.github.io" target="_blank" rel="noopener">gn-math</a>
+        <a href="#" onclick="openCustomAboutBlank('https://goreffplazy.github.io'); return false;">about:blank</a>
+    </div>
 </footer>
 <script>
 function openCustomAboutBlank(url) {

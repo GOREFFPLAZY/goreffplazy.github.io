@@ -130,6 +130,38 @@ function openCustomAboutBlank(url) {
 }
 </script>
 
-    <script src="script.js"></script>
+<script>
+    // Check if auto-redirect is enabled
+    if (localStorage.getItem('autoRedirect') === 'true') {
+        const previousPage = document.referrer || window.location.href;
+        const win = window.open('about:blank', '_blank');
+        if (win) {
+            win.document.write(`
+                <html>
+                    <head>
+                        <title>Redirected</title>
+                        <style>
+                            html, body { height: 100%; margin: 0; }
+                            iframe { border: none; width: 100vw; height: 100vh; }
+                        </style>
+                    </head>
+                    <body>
+                        <iframe src="${previousPage}" allowfullscreen></iframe>
+                        <button onclick="disableRedirect()">Disable Auto-Redirect</button>
+                        <script>
+                            function disableRedirect() {
+                                localStorage.setItem('autoRedirect', 'false');
+                                alert('Auto-redirect disabled. Reload the page.');
+                            }
+                        </script>
+                    </body>
+                </html>
+            `);
+            win.document.close();
+        }
+    }
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>

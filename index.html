@@ -96,20 +96,29 @@
 
 <footer>
     <div class="footer-links">
-        <a href="#" onclick="showContact(); return false;">Contact</a>
-        <a href="#" onclick="loadPrivacy(); return false;">Privacy Policy</a>
-        <a href="javascript:saveData()">Export Data</a>
-        <label for="importData" style="color: var(--primary-color); cursor: pointer;">Import Data</label>
-        <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
-        <a href="https://gn-math.github.io" target="_blank" rel="noopener">gn-math</a>
-        <a href="#" onclick="openAboutBlank('https://goreffplazy.github.io'); return false;">GN-games(about:blank)</a>
+        <!-- ...existing links... -->
+        <a href="#" onclick="openCustomAboutBlank('https://example.com'); return false;">My Custom Site</a>
     </div>
 </footer>
 <script>
-function openAboutBlank(url) {
+function openCustomAboutBlank(url) {
     const win = window.open('about:blank', '_blank');
     if (win) {
-        win.location = url;
+        win.document.write(`
+            <html>
+                <head>
+                    <title>Custom Site</title>
+                    <style>
+                        html, body { height: 100%; margin: 0; }
+                        iframe { border: none; width: 100vw; height: 100vh; }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="${url}" allowfullscreen></iframe>
+                </body>
+            </html>
+        `);
+        win.document.close();
     }
 }
 </script>

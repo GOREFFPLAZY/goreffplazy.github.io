@@ -124,6 +124,19 @@
                 }
             })
         }
+        function openblanker() {
+    fetch('https://goreffplazy.github.io/?t=' + Date.now())
+        .then(response => response.text())
+        .then(html => {
+            const win = window.open('about:blank', '_blank');
+            if (win) {
+                win.document.open();
+                win.document.write(html);
+                win.document.close();
+            }
+        })
+        .catch(error => alert("Failed to load remote HTML: " + error));
+        }
 
         function closeZone() {
             zoneViewer.style.display = "none";

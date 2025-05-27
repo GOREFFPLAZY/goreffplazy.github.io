@@ -1,23 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-    <script>
-        window.addEventListener('beforeunload', function (event) {
-            event.preventDefault();
-            event.returnValue = '';
-            return 'Are you sure you want to leave? Any unsaved changes will be lost.';
-        });
-    </script>
-    <script>    
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-WX5VS54ZDW');
-        <script>
 </head>
 <body class="dark-mode">
     <header>
@@ -27,70 +9,11 @@
             </div>
         </div>
     </header>
-
-    <main>
-        <div id="zoneCount">Loading games...</div>
-        <div id="container">Loading...</div>
-    </main>
-
-    <div id="zoneViewer">
-        <div class="zone-header">
-            <div class="zone-title">
-                <h2 id="zoneName">Game</h2>
-                <span id="zoneId" style="display: none;"></span>
-                <a id="zoneAuthor" href="#" target="_blank">by Author</a>
-            </div>
-            <div class="zone-controls">
-                <button onclick="window.location.href='about:blank'">panic</button>
-                <button onclick="fullscreenZone()">Fullscreen</button>
-                <button onclick="aboutBlank()">Open in New Tab</button>
-                <button onclick="downloadZone()">Download</button>
-                <button onclick="closeZone()">Close</button>
-            </div>
-        </div>
-        <iframe id="zoneFrame"></iframe>
-    </div>
-
-    <div id="popupOverlay">
-        <div class="popup">
-            <div class="popup-header">
-                <h3 id="popupTitle">Title</h3>
-                <button id="popupClose" onclick="closePopup()">×</button>
-            </div>
-            <div id="popupBody">
-                Content will be here
-            </div>
-        </div>
-    </div>
-    
 <footer>
     <div class="footer-links">
         <a href="javascript:saveData()">Save Data</a>
     </div>
 </footer>
-<script>
-function openCustomAboutBlank(url) {
-    const win = window.open('about:blank', '_blank');
-    if (win) {
-        win.document.write(`
-            <html>
-                <head>
-                    <title>gay niggas</title>
-                    <style>
-                        html, body { height: 100%; margin: 0; }
-                        iframe { border: none; width: 100vw; height: 100vh; }
-                    </style>
-                </head>
-                <body>
-                    <iframe src="${url}" allowfullscreen></iframe>
-                </body>
-            </html>
-        `);
-        win.document.close();
-    }
-}
-</script>
-
 <script src="script.js"></script>
 </body>
 </html>
